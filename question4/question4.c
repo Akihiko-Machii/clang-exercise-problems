@@ -2,7 +2,7 @@
 
 int main(void)
 {
-  int *p;
+  int *p = NULL;
   int i = 20;
 
   p = &i;
