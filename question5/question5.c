@@ -33,8 +33,8 @@ int main(void)
            (void *)&long_array[1] - (void *)&long_array[0]);
     printf("charポインタ=%d shortポインタ=%d intポインタ=%d "
            "longポインタ=%d\n",
-           (void *)p1++ - (void *)p1, (void *)p2++ - (void *)p2,
-           (void *)p3++ - (void *)p3, (void *)p4++ - (void *)p4);
+           (void *)(p1 + 1) - (void *)p1, (void *)(p2 + 1) - (void *)p2,
+           (void *)(p3 + 1) - (void *)p3, (void *)(p4 + 1) - (void *)p4);
 
     return 0;
 }
