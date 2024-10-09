@@ -4,10 +4,10 @@
 
 int main(void)
 {
-    char charArray[SIZE];
-    short shortArray[SIZE];
-    int intArray[SIZE];
-    long longArray[SIZE];
+    char char_array[SIZE];
+    short short_array[SIZE];
+    int int_array[SIZE];
+    long long_array[SIZE];
     int i;
     char *p1 = NULL;
     short *p2 = NULL;
@@ -15,22 +15,22 @@ int main(void)
     long *p4 = NULL;
 
     for (i = 0; i < SIZE; i++) {
-        charArray[i] = 'A' + i;
-        shortArray[i] = i;
-        intArray[i] = i;
-        longArray[i] = i;
+        char_array[i] = 'A' + i;
+        short_array[i] = i;
+        int_array[i] = i;
+        long_array[i] = i;
     }
 
-    p1 = charArray;
-    p2 = shortArray;
-    p3 = intArray;
-    p4 = longArray;
+    p1 = char_array;
+    p2 = short_array;
+    p3 = int_array;
+    p4 = long_array;
 
     printf("char 配列=%d short 配列=%d int 配列=%d long 配列=%d\n",
-           (void *)&charArray[1] - (void *)&charArray[0],
-           (void *)&shortArray[1] - (void *)&shortArray[0],
-           (void *)&intArray[1] - (void *)&intArray[0],
-           (void *)&longArray[1] - (void *)&longArray[0]);
+           (void *)&char_array[1] - (void *)&char_array[0],
+           (void *)&short_array[1] - (void *)&short_array[0],
+           (void *)&int_array[1] - (void *)&int_array[0],
+           (void *)&long_array[1] - (void *)&long_array[0]);
     printf("charポインタ=%d shortポインタ=%d intポインタ=%d "
            "longポインタ=%d\n",
            (void *)p1++ - (void *)p1, (void *)p2++ - (void *)p2,
