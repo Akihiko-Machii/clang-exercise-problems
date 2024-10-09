@@ -14,7 +14,7 @@ int main(void)
     int *p3 = NULL;
     long *p4 = NULL;
 
-    for (int i = 0; i < SIZE; i++) {
+    for (i = 0; i < SIZE; i++) {
         charArray[i] = 'A' + i;
         shortArray[i] = i;
         intArray[i] = i;
