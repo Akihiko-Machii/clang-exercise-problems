@@ -14,8 +14,6 @@ jobs:
       run: sudo apt-get install clang-format
 
     - name: Run clang-format
-      shell: bash
       run: |
-        shopt -s globstar  # Bashの拡張グロブを有効にします
-        clang-format -i **/xxx*.c  # 規則性のあるCファイルに対して適用
-        git diff --exit-code  # フォーマットの変更があるかどうかをチェック
+        find . -name "xxx*.c" | xargs clang-format -i
+        git diff --exit-code
