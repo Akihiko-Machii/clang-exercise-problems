@@ -1,4 +1,4 @@
-name: Clang Format Check
+name: Clang Format Check and Fix
 
 on: [push, pull_request]
 
@@ -10,10 +10,31 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Load environment variables from .env
+      run: |
+        ls -la
+        if [ -f .env ]; then
+          echo "Loading environment variables from .env file"
+          source .env
+        fi
+      shell: bash
+
     - name: Install clang-format
       run: sudo apt-get install clang-format
 
     - name: Run clang-format
       run: |
         find . -name "xxx*.c" | xargs clang-format -i
-        git diff --exit-code
+
+    - name: Commit changes if any
+      run: |
+        if ! git diff --quiet; then
+          git config --global user.name "$GIT_USER_NAME"
+          git config --global user.email "$GIT_USER_EMAIL"
+          git add .
+          git commit -m "Apply clang-format changes"
+          git push
+        fi
+      env:
+        GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+        GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
