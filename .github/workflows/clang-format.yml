@@ -15,5 +15,6 @@ jobs:
 
     - name: Run clang-format
       run: |
-        clang-format -i **/*.cpp **/*.h  # 適用する拡張子やディレクトリをここで指定
+        shopt -s globstar  # Bashの拡張グロブを有効にします
+        clang-format -i **/xxx*.c  # 規則性のあるCファイルに対して適用
         git diff --exit-code  # フォーマットの変更があるかどうかをチェック
