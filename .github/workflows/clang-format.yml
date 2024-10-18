@@ -15,7 +15,7 @@ jobs:
 
     - name: Run clang-format
       run: |
-        find . -name "xxx*.c" | xargs clang-format -i
+        find . -name "question*.c" | xargs clang-format -i
 
     - name: Commit changes if any
       env:
