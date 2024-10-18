@@ -12,7 +12,6 @@ jobs:
 
     - name: Load environment variables from .env
       run: |
-        ls -la
         if [ -f .env ]; then
           echo "Loading environment variables from .env file"
           source .env
@@ -24,7 +23,12 @@ jobs:
 
     - name: Run clang-format
       run: |
-        find . -name "xxx*.c" | xargs clang-format -i
+        FILES=$(find . -name "xxx*.c")
+        if [ -n "$FILES" ]; then
+          echo "$FILES" | xargs clang-format -i
+        else
+          echo "No files found to format"
+        fi
 
     - name: Commit changes if any
       run: |
