@@ -1,2 +1,2 @@
-1: param1
-2: param2
+1: pram1
+2: pram2
