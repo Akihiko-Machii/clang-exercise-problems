@@ -1,6 +1,6 @@
 name: Clang Format Check and Fix
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   clang-format:
