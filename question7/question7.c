@@ -6,7 +6,8 @@ int main(void)
 {
     int i;
     for (i = 0; i < sizeof(i); i++) {
-        printf("%d回目の呼び出し 値=%d\n", i + 1, static_counter());
+        int counter_value = static_counter();
+        printf("%d回目の呼び出し 値=%d\n", i + 1, counter_value);
     }
 
     return 0;
