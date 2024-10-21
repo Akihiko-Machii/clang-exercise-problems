@@ -6,33 +6,29 @@
 
 int main(int argc, char *argv[])
 {
-  if (argc < 2)
-  {
-    printf("コマンドラインで./a.outの後にusageを指定してください\n");
-    return 1;
-  }
+    if (argc < 2) {
+        printf("コマンドラインで./a.outの後にusageを指定してください\n");
+        return 1;
+    }
 
-  char filename[SIZE];
-  snprintf(filename, sizeof(filename), "%s.txt", argv[1]);
+    char filename[SIZE];
+    snprintf(filename, sizeof(filename), "%s.txt", argv[1]);
 
-  FILE *fp = fopen(filename, "r");
+    FILE *fp = fopen(filename, "r");
 
-  if (fp == NULL)
-  {
-    printf("ファイルを開けませんでした\n");
-    return 1;
-  }
+    if (fp == NULL) {
+        printf("ファイルを開けませんでした\n");
+        return 1;
+    }
 
-  int c;
-  printf("usage: ");
+    int c;
+    printf("usage: ");
 
-  while ((c = fgetc(fp)) != EOF)
-  {
-    putchar(c);
-  }
+    while ((c = fgetc(fp)) != EOF) {
+        putchar(c);
+    }
 
-  fclose(fp);
+    fclose(fp);
 
-  return 0;
+    return 0;
 }
-
