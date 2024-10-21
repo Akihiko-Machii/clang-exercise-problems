@@ -12,6 +12,11 @@ int main(void)
     return 0;
 }
 
+/**
+ * @brief カウント数（整数）を加算する関数
+ *
+ * @return static int countをインクリメントした値
+ */
 int static_counter(void)
 {
     static int count = 0;
