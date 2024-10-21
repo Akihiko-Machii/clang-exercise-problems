@@ -1,0 +1,32 @@
+name: Clang Format Check and Fix
+
+on: [push]
+
+jobs:
+  clang-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install clang-format
+      run: sudo apt-get install clang-format
+
+    - name: Run clang-format
+      run: |
+        find . -name "question*.c" | xargs clang-format -i
+
+    - name: Commit changes if any
+      env:
+        GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+        GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+      run: |
+        if ! git diff --quiet; then
+          git config --global user.name "$GIT_USER_NAME"
+          git config --global user.email "$GIT_USER_EMAIL"
+          git add .
+          git commit -m "Apply clang-format changes"
+          git push
+        fi
+      shell: bash
