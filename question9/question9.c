@@ -12,6 +12,13 @@ int main(void)
     return 0;
 }
 
+/**
+ * @brief 引数に与えられた値を入れ替える関数 
+ *
+ * @ param a intの値
+ * @ param b intの値
+ * @ return 引数aとbを入れ替えた値
+ */
 void swap_int(int *a, int *b)
 {
     int temp = *a;
