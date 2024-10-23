@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void swap_int(int *a, int *b);
+static void swap_int(int *a, int *b);
 
 int main(void)
 {
@@ -19,7 +19,7 @@ int main(void)
  * @ param b intの値
  * @ return 引数aとbを入れ替えた値
  */
-void swap_int(int *a, int *b)
+static void swap_int(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
