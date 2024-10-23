@@ -1,1 +1,1 @@
-プログラム名 filename
+usage: プログラム名 filename
