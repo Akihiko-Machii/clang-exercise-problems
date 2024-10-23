@@ -17,13 +17,12 @@ int main(int argc, char *argv[])
 
     snprintf(filename, sizeof(filename), "%s.txt", argv[1]);
 
-   fp = fopen(filename, "r");
+    fp = fopen(filename, "r");
 
     if (fp == NULL) {
         printf("ファイルを開けませんでした\n");
         return 1;
     }
-
 
     while ((c = fgetc(fp)) != EOF) {
         putchar(c);
