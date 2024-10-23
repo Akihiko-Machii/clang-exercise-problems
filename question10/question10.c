@@ -14,7 +14,7 @@ DAT dat[] = {
     {5, "AA"},
 };
 
-int compare_asc(const void *n1, const void *n2);
+static int compare_asc(const void *n1, const void *n2);
 
 int main(void)
 {
@@ -29,7 +29,7 @@ int main(void)
     return 0;
 }
 
-int compare_asc(const void *n1, const void *n2)
+static int compare_asc(const void *n1, const void *n2)
 {
     DAT *p1 = (DAT *)n1;
     DAT *p2 = (DAT *)n2;
