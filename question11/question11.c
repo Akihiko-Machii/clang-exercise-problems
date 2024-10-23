@@ -11,17 +11,19 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    FILE *fp;
     char filename[SIZE];
+    int c;
+
     snprintf(filename, sizeof(filename), "%s.txt", argv[1]);
 
-    FILE *fp = fopen(filename, "r");
+   fp = fopen(filename, "r");
 
     if (fp == NULL) {
         printf("ファイルを開けませんでした\n");
         return 1;
     }
 
-    int c;
 
     while ((c = fgetc(fp)) != EOF) {
         putchar(c);
