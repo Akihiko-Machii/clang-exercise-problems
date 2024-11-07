@@ -47,11 +47,7 @@ static int compare_asc(const void *n1, const void *n2)
         return 1;
     } else if (p1->n < p2->n) {
         return -1;
-    } else if (strcmp(p1->s, p2->s) > 0) {
-        return 1;
-    } else if (strcmp(p1->s, p2->s) < 0) {
-        return -1;
     } else {
-        0;
+        return strcmp(p1->s, p2->s);
     }
 }
