@@ -42,7 +42,12 @@ int main(int argc, char *argv[])
     }
   }
 
-  fclose(fp);
+   if (fclose(fp) != 0)
+   {
+     printf("ファイルを閉じれませんでした\n");
+     return 1;
+   }
+
   return 0;
 }
 
