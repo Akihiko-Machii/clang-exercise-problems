@@ -3,9 +3,9 @@
 
 int main(int argc, char *argv[])
 {
-	long page_size = sysconf(_SC_PAGESIZE);
-	
-    	if (argc < 2) {
+    long page_size = sysconf(_SC_PAGESIZE);
+
+    if (argc < 2) {
         printf("コマンドラインで./a.outの後にusageを指定してください\n");
         return 1;
     }
@@ -23,11 +23,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-
     while (fgets(buffer, sizeof(buffer), fp) != NULL) {
         printf("%s", buffer);
     }
-    
+
     if (fclose(fp) != 0) {
         printf("ファイルを閉じれませんでした\n");
         return 1;
