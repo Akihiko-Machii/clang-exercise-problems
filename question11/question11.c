@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     FILE *fp;
     char filename[page_size];
-    int c;
+    char buffer[page_size];
 
     snprintf(filename, sizeof(filename), "%s.txt", argv[1]);
 
@@ -23,10 +23,11 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    while ((c = fgetc(fp)) != EOF) {
-        putchar(c);
-    }
 
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+        printf("%s", buffer);
+    }
+    
     fclose(fp);
 
     return 0;
