@@ -35,11 +35,10 @@ int main(int argc, char *argv[])
         }
     }
 
-   if (fclose(fp) != 0)
-   {
-     printf("ファイルを閉じれませんでした\n");
-     return 1;
-   }
+    if (fclose(fp) != 0) {
+        printf("ファイルを閉じれませんでした\n");
+        return 1;
+    }
 
-   return 0;
+    return 0;
 }
