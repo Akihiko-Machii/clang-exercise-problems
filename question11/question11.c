@@ -1,16 +1,17 @@
 #include <stdio.h>
-
-#define SIZE 256
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
-    if (argc < 2) {
+	long page_size = sysconf(_SC_PAGESIZE);
+	
+    	if (argc < 2) {
         printf("コマンドラインで./a.outの後にusageを指定してください\n");
         return 1;
     }
 
     FILE *fp;
-    char filename[SIZE];
+    char filename[page_size];
     int c;
 
     snprintf(filename, sizeof(filename), "%s.txt", argv[1]);
