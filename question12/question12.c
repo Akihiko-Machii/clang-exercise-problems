@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
         }
     }
 
-    if (fclose(fp) != 0) {
+    int close_result = fclose(fp);
+    if (close_result != 0) {
         printf("ファイルを閉じれませんでした\n");
         return FAILURE;
     }
