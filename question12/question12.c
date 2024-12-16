@@ -1,10 +1,13 @@
 #include <stdio.h>
 
+#define SUCCESS 0
+#define FAILURE 1
+
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
         printf("コマンドラインで./a.outの後にusageを指定してください\n");
-        return 1;
+        return FAILURE;
     }
 
     FILE *fp;
@@ -17,7 +20,7 @@ int main(int argc, char *argv[])
 
     if (fp == NULL) {
         printf("ファイルを開けませんでした\n");
-        return 1;
+        return FAILURE;
     }
 
     while ((c = fgetc(fp)) != EOF) {
@@ -30,15 +33,14 @@ int main(int argc, char *argv[])
             printf("\n");
             newline = 1;
         } else {
-
             printf("%02X", (unsigned char)c);
         }
     }
 
     if (fclose(fp) != 0) {
         printf("ファイルを閉じれませんでした\n");
-        return 1;
+        return FAILURE;
     }
 
-    return 0;
+    return SUCCESS;
 }
