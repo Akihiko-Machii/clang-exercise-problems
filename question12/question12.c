@@ -2,6 +2,7 @@
 
 #define SUCCESS 0
 #define FAILURE 1
+#define FILENAME_SIZE 256
 
 int main(int argc, char *argv[])
 {
@@ -11,7 +12,7 @@ int main(int argc, char *argv[])
     }
 
     FILE *fp;
-    char filename[256];
+    char filename[FILENAME_SIZE];
     int c;
     int newline = 1;
 
